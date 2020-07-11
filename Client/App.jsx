@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import DefaultPlayground from './Components/Cup.jsx';
+import NonDeclarative from './Components/CupTwo.jsx';
 
 const App = () => {
 
