@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import DefaultPlayground from './Components/Cup.jsx';
-import NonDeclarative from './Components/CupTwo.jsx';
+import BabylonScene from './Components/CupTwo.jsx';
 
 const App = () => {
 
@@ -10,7 +10,8 @@ const App = () => {
     return (
         <div>
         <div>This renders properly</div>
-        <DefaultPlayground />
+        {/* <DefaultPlayground /> */}
+        <BabylonScene />
         </div>
     )
 }

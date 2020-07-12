@@ -28,12 +28,16 @@ var createScene = function () {
     var faceColors = [];
     faceColors[1] = new BABYLON.Color4(1, 1, 1, 1);
     faceColors[2] = new BABYLON.Color4(1, 1, 1, 0.6);
-     var cup = BABYLON.MeshBuilder.CreateCylinder("cone", {diameterTop: 1.5, diameterBottom: 1.2, height: 2.1, tessellation: 24, faceUV: faceUV, faceColors: faceColors}, scene);
+    var lipColors = [];
+    lipColors[1] = new BABYLON.Color4(1, 1, 1, 1);
+    lipColors[2] = new BABYLON.Color4(1, 1, 1, 0.6);
+    lipColors[3] = new BABYLON.Color4(1, 1, 1, 0.6);
+     var cup = BABYLON.MeshBuilder.CreateCylinder("cone", {diameterTop: 1.5, diameterBottom: 1.2, height: 3.1, tessellation: 24, faceUV: faceUV, faceColors: faceColors}, scene);
      cup.hasVertexAlpha = true;
     // Move the sphere upward 1/2 its height
     cup.position.y = 1;
 
-    var lip = BABYLON.MeshBuilder.CreateCylinder("cone", {diameterTop: 1.54, diameterBottom: 1.54, height: 0.3, tessellation: 24, faceUV: faceUV, faceColors: faceColors}, scene);
+    var lip = BABYLON.MeshBuilder.CreateCylinder("cone", {diameterTop: 1.54, diameterBottom: 1.54, height: 1.3, tessellation: 24, faceUV: faceUV, faceColors: lipColors}, scene);
     lip.position.y = 2;
     lip.hasVertexAlpha = true;
 

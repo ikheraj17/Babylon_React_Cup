@@ -18,6 +18,7 @@ const DefaultPlayground = () => (
       <hemisphericLight name="light1" intensity={0.7} direction={Vector3.Up()} />
       <cylinder name="cylinder" diameterTop={1.5} diameterBottom={1.2} segments={16} position={new Vector3(0, 0, 0)} height={3} faceUV={faceUV} faceColors={faceColors} hasVertexAlpha={true}>
           <standardMaterial emissiveColor={Color3.White()} />
+          <texture onLoadObservable={true} url={'http//localhost:3000/styrofoam.jpg'} />
           </cylinder>
       <cylinder name="cylinder" diameterTop={1.54} diameterBottom={1.54} segments={16} position={new Vector3(0, 1.3, 0)} height={0.4} faceUV={faceUV} faceColors={faceColors} hasVertexAlpha={true}>
       <standardMaterial emissiveColor={Color3.White()} />
