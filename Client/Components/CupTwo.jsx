@@ -65,7 +65,7 @@ class BabylonScene extends Component {
       new BABYLON.Vector3(0, 10, 0),
       scene
     );
-    light.intensity = 0.3;
+    light.intensity = 0.39;
   };
 
   /**
