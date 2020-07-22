@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import * as BABYLON from "babylonjs";
 
 var scene;
-var boxMesh;
 /**
  * Example temnplate of using Babylon JS with React
  */
@@ -65,7 +64,7 @@ class BabylonScene extends Component {
       new BABYLON.Vector3(0, 10, 0),
       scene
     );
-    light.intensity = 0.39;
+    light.intensity = 0.27;
   };
 
   /**
@@ -94,19 +93,6 @@ class BabylonScene extends Component {
    * Create Stage and Skybox
    */
   addGround = () => {
-    // Create a built-in "ground" shape.
-    var ground = BABYLON.MeshBuilder.CreateGround(
-      "ground1",
-      { height: 6, width: 6, subdivisions: 2 },
-      scene
-    );
-    var groundMaterial = new BABYLON.StandardMaterial("grass0", scene);
-    groundMaterial.ambientTexture = new BABYLON.Texture(
-      "http://localhost:3000/styrofoam.jpg",
-      scene
-    );
-    ground.material = groundMaterial;
-
     //Add SkyBox
     var photoSphere = BABYLON.Mesh.CreateSphere("skyBox", 16.0, 50.0, scene);
     var skyboxMaterial = new BABYLON.StandardMaterial("smat", scene);
@@ -128,9 +114,8 @@ class BabylonScene extends Component {
    * Add Models
    */
   addModels = () => {
-    // Add BOX
     var faceUV = [];
-	faceUV[0] =	new BABYLON.Vector4(0, 0, 0, 0);
+    faceUV[0] =	new BABYLON.Vector4(0, 0, 0, 0);
     faceUV[1] =	new BABYLON.Vector4(1, 0, 0.32, 1);
     faceUV[2] = new BABYLON.Vector4(0, 0, 0.25, 1);
     var faceColors = [];
@@ -140,14 +125,14 @@ class BabylonScene extends Component {
     lipColors[1] = new BABYLON.Color4(1, 1, 1, 1);
     lipColors[2] = new BABYLON.Color4(1, 1, 1, 0.6);
     lipColors[3] = new BABYLON.Color4(1, 1, 1, 0.6);
-     var cup = BABYLON.MeshBuilder.CreateCylinder("cone", {diameterTop: 1.5, diameterBottom: 1.2, height: 2.1, tessellation: 24, faceUV: faceUV, faceColors: faceColors}, scene);
-     cup.hasVertexAlpha = true;
-    // Move the sphere upward 1/2 its height
+
+    var cup = BABYLON.MeshBuilder.CreateCylinder("cone", {diameterTop: 1.5, diameterBottom: 1.2, height: 2.4, tessellation: 24, faceUV: faceUV, faceColors: faceColors}, scene);
+    cup.hasVertexAlpha = true;
     cup.position.y = 1;
 
-    var lip = BABYLON.MeshBuilder.CreateCylinder("cone", {diameterTop: 1.54, diameterBottom: 1.54, height: 0.3, tessellation: 24, faceColors: lipColors}, scene);
-    lip.position.y = 2;
+    var lip = BABYLON.MeshBuilder.CreateCylinder("cone", {diameterTop: 1.54, diameterBottom: 1.54, height: 0.4, tessellation: 24, faceColors: lipColors}, scene);
     lip.hasVertexAlpha = true;
+    lip.position.y = 2.1;
 
 
     var styroMaterial = new BABYLON.StandardMaterial("styrofoam", scene);
@@ -155,11 +140,6 @@ class BabylonScene extends Component {
       "http://localhost:3000/styrofoam.jpg",
       scene
     );
-    // var styrofoam = new BABYLON.StandardMaterial("styrofoam", scene);
-    // styroMaterial.emissiveColor = new BABYLON.Color3(1, 1, 1);
-    // cup.material = styrofoam;
-    // lip.material = styrofoam;
-
     
     cup.material = styroMaterial;
     lip.material = styroMaterial;
